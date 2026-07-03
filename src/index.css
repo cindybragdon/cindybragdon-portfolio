@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f6eee9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(169, 120, 104, 0.28);
+  color: #3a2a25;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
