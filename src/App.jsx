@@ -86,7 +86,7 @@ function App() {
               </a>
 
               <a
-                href="https://linkedin.com/in/cindy-bragdon-873a8822a/"
+                href="https://www.linkedin.com/in/cindy-bragdon/"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#A97868]/30 bg-white/40 px-6 py-3 text-sm font-semibold text-[#5a4038] backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/70"
@@ -709,7 +709,7 @@ function App() {
                   </a>
 
                   <a
-                    href="https://linkedin.com/in/cindy-bragdon-873a8822a/"
+                    href="https://www.linkedin.com/in/cindy-bragdon/"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-[#A97868]/30 bg-white/40 px-6 py-3 text-sm font-semibold text-[#5a4038] backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/70"
@@ -757,7 +757,7 @@ function App() {
                         size={18}
                         className="shrink-0 text-[#A97868]"
                       />
-                      linkedin.com/in/cindy-bragdon-873a8822a
+                      linkedin.com/in/cindy-bragdon/
                     </p>
 
                     <p className="text-sm leading-6">
