@@ -65,7 +65,7 @@ function App() {
               className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#6f5a52] sm:text-lg md:mx-0 md:mt-6 md:text-xl md:leading-8"
             >
               Gestion de projets numériques, coordination Agile et solutions web
-              pensées avec structure, douceur et clarté.
+              pensées avec structure et clarté.
             </motion.p>
 
             <motion.div
