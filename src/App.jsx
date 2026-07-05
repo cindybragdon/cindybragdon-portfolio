@@ -1,10 +1,65 @@
 import { motion } from "framer-motion";
 import { Mail, ExternalLink, ArrowRight } from "lucide-react";
+
 import cindyPhoto from "./assets/cindy.jpg";
 import CursorStars from "./components/CursorStars";
 import Navbar from "./components/Navbar";
+
 import starboostVideo from "./assets/videos/starboost.mp4";
 import laruelleVideo from "./assets/videos/laruelle.mp4";
+
+import sitegrowLogo from "./assets/logos/sitegrow.png";
+import desjardinsLogo from "./assets/logos/desjardins.png";
+import royalLogo from "./assets/logos/royal-lepage.png";
+
+import swapItImage from "./assets/projects/swap-it.png";
+import rltImage from "./assets/projects/rlt.png";
+
+import SignatureAccent from "./components/SignatureAccent";
+
+const experiences = [
+  {
+    company: "Sitegrow",
+    role: "Chargée de projet numérique — SEO / GEO",
+    period: "2026 — Présent",
+    logo: sitegrowLogo,
+    logoClassName: "max-h-8 max-w-[150px]",
+    gridClassName: "md:grid-cols-2",
+    points: [
+      "Gestion proactive d’un portefeuille d’environ 30 clients.",
+      "Coordination entre clients, développement et direction.",
+      "Suivi des livrables SEO/GEO, contenus, fiches Google et optimisations web.",
+      "Amélioration des processus internes et du suivi des tâches.",
+    ],
+  },
+  {
+    company: "Desjardins",
+    role: "Consultante — Gestion de données et processus",
+    period: "2025",
+    logo: desjardinsLogo,
+    logoClassName: "max-h-8 max-w-[155px]",
+    gridClassName: "md:grid-cols-3",
+    points: [
+      "Analyse de flux opérationnels complexes.",
+      "Coordination d’échanges de données en environnement sécurisé.",
+      "Documentation rigoureuse des procédures.",
+    ],
+  },
+  {
+    company: "Royal LePage",
+    role: "Coordonnatrice de projet Agile — Stage",
+    period: "2025",
+    logo: royalLogo,
+    logoClassName: "max-h-10 max-w-[170px]",
+    gridClassName: "md:grid-cols-2",
+    points: [
+      "Coordination de deux équipes web et mobile en mode Agile.",
+      "Gestion du backlog, planification de sprints et rituels.",
+      "Traduction des besoins d’affaires en récits utilisateurs.",
+      "Suivi des livrables et coordination des parties prenantes.",
+    ],
+  },
+];
 
 function App() {
   return (
@@ -249,307 +304,338 @@ function App() {
             </div>
 
             <div className="space-y-6">
-              <article className="rounded-[2rem] border border-white/60 bg-white/35 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl md:p-8">
-                <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-[#3a2a25]">
-                      Sitegrow
-                    </h3>
-                    <p className="mt-1 text-[#A97868]">
-                      Chargée de projet numérique — SEO / GEO
+              {experiences.map((experience) => (
+                <motion.article
+                  key={experience.company}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.65, ease: "easeOut" }}
+                  className="rounded-[2rem] border border-white/60 bg-white/35 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl md:p-8"
+                >
+                  <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                      <div className="flex h-[68px] w-full items-center justify-center rounded-2xl border border-white/60 bg-white/50 px-5 py-3 shadow-inner shadow-[#6f5a52]/5 sm:w-[205px]">
+                        <img
+                          src={experience.logo}
+                          alt={`Logo ${experience.company}`}
+                          className={`w-auto object-contain ${experience.logoClassName}`}
+                        />
+                      </div>
+
+                      <div>
+                        <h3 className="text-2xl font-bold text-[#3a2a25]">
+                          {experience.company}
+                        </h3>
+                        <p className="mt-1 text-[#A97868]">
+                          {experience.role}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="w-fit rounded-full bg-white/50 px-4 py-2 text-sm font-semibold text-[#6f5a52]">
+                      {experience.period}
                     </p>
                   </div>
 
-                  <p className="w-fit rounded-full bg-white/50 px-4 py-2 text-sm font-semibold text-[#6f5a52]">
-                    2026 — Présent
-                  </p>
-                </div>
-
-                <ul className="mt-6 grid gap-3 text-[#6f5a52] md:grid-cols-2">
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Gestion proactive d’un portefeuille d’environ 30 clients.
-                  </li>
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Coordination entre clients, développement et direction.
-                  </li>
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Suivi des livrables SEO/GEO, contenus, fiches Google et
-                    optimisations web.
-                  </li>
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Amélioration des processus internes et du suivi des tâches.
-                  </li>
-                </ul>
-              </article>
-
-              <article className="rounded-[2rem] border border-white/60 bg-white/30 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl md:p-8">
-                <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-[#3a2a25]">
-                      Desjardins
-                    </h3>
-                    <p className="mt-1 text-[#A97868]">
-                      Consultante — Gestion de données et processus
-                    </p>
-                  </div>
-
-                  <p className="w-fit rounded-full bg-white/50 px-4 py-2 text-sm font-semibold text-[#6f5a52]">
-                    2025
-                  </p>
-                </div>
-
-                <ul className="mt-6 grid gap-3 text-[#6f5a52] md:grid-cols-3">
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Analyse de flux opérationnels complexes.
-                  </li>
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Coordination d’échanges de données en environnement sécurisé.
-                  </li>
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Documentation rigoureuse des procédures.
-                  </li>
-                </ul>
-              </article>
-
-              <article className="rounded-[2rem] border border-white/60 bg-white/30 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl md:p-8">
-                <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-[#3a2a25]">
-                      Royal LePage
-                    </h3>
-                    <p className="mt-1 text-[#A97868]">
-                      Coordonnatrice de projet Agile — Stage
-                    </p>
-                  </div>
-
-                  <p className="w-fit rounded-full bg-white/50 px-4 py-2 text-sm font-semibold text-[#6f5a52]">
-                    2025
-                  </p>
-                </div>
-
-                <ul className="mt-6 grid gap-3 text-[#6f5a52] md:grid-cols-2">
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Coordination de deux équipes web et mobile en mode Agile.
-                  </li>
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Gestion du backlog, planification de sprints et rituels.
-                  </li>
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Traduction des besoins d’affaires en récits utilisateurs.
-                  </li>
-                  <li className="rounded-2xl bg-white/35 p-4">
-                    Suivi des livrables et coordination des parties prenantes.
-                  </li>
-                </ul>
-              </article>
+                  <ul
+                    className={`mt-6 grid gap-3 text-[#6f5a52] ${experience.gridClassName}`}
+                  >
+                    {experience.points.map((point) => (
+                      <li key={point} className="rounded-2xl bg-white/35 p-4">
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.article>
+              ))}
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* =========================
-          PROJETS
-      ========================= */}
-      <section id="projects" className="relative px-5 py-20 md:px-6 md:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.28em] text-[#A97868] sm:text-sm md:tracking-[0.35em]">
-              Projets
+    PROJETS
+========================= */}
+<section id="projects" className="relative px-5 py-20 md:px-6 md:py-24">
+  <div className="mx-auto max-w-6xl">
+    <div>
+      <p className="mb-4 text-xs uppercase tracking-[0.28em] text-[#A97868] sm:text-sm md:tracking-[0.35em]">
+        Projets
+      </p>
+
+      <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <h2 className="max-w-3xl text-3xl font-bold leading-tight text-[#3a2a25] md:text-5xl">
+          Des idées transformées en concepts numériques structurés.
+        </h2>
+
+        <p className="max-w-md text-base leading-7 text-[#6f5a52]">
+          Dans mes projets personnels, je travaille la conception, la
+          validation, l’organisation, la recherche technologique et la
+          définition de MVP.
+        </p>
+      </div>
+
+      <div className="mb-8 rounded-[2rem] border border-white/60 bg-white/35 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl md:p-8">
+        <h3 className="text-2xl font-bold text-[#3a2a25]">
+          Mon rôle dans ces projets
+        </h3>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
+          <div className="rounded-2xl bg-white/35 p-4">
+            <p className="font-semibold text-[#3a2a25]">
+              Gestion de projet
             </p>
+            <p className="mt-2 text-sm leading-6 text-[#6f5a52]">
+              Organisation des tâches, priorisation, suivi dans Trello et
+              structuration des étapes.
+            </p>
+          </div>
 
-            <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <h2 className="max-w-3xl text-3xl font-bold leading-tight text-[#3a2a25] md:text-5xl">
-                Des idées transformées en concepts numériques structurés.
-              </h2>
+          <div className="rounded-2xl bg-white/35 p-4">
+            <p className="font-semibold text-[#3a2a25]">
+              Conception produit
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#6f5a52]">
+              Définition des fonctionnalités, parcours utilisateurs,
+              preuves de concept et MVP.
+            </p>
+          </div>
 
-              <p className="max-w-md text-base leading-7 text-[#6f5a52]">
-                Dans mes projets personnels, je travaille la conception, la
-                validation, l’organisation, la recherche technologique et la
-                définition de MVP.
-              </p>
-            </div>
-
-            <div className="mb-8 rounded-[2rem] border border-white/60 bg-white/35 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl md:p-8">
-              <h3 className="text-2xl font-bold text-[#3a2a25]">
-                Mon rôle dans ces projets
-              </h3>
-
-              <div className="mt-5 grid gap-3 md:grid-cols-3">
-                <div className="rounded-2xl bg-white/35 p-4">
-                  <p className="font-semibold text-[#3a2a25]">
-                    Gestion de projet
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-[#6f5a52]">
-                    Organisation des tâches, priorisation, suivi dans Trello et
-                    structuration des étapes.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl bg-white/35 p-4">
-                  <p className="font-semibold text-[#3a2a25]">
-                    Conception produit
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-[#6f5a52]">
-                    Définition des fonctionnalités, parcours utilisateurs,
-                    preuves de concept et MVP.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl bg-white/35 p-4">
-                  <p className="font-semibold text-[#3a2a25]">
-                    Vision marché
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-[#6f5a52]">
-                    Recherche de technologies adaptées, validation des besoins et
-                    identification d’utilisateurs ou clients potentiels.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid gap-6 lg:grid-cols-3">
-              <motion.article
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="group flex flex-col rounded-[2rem] border border-white/60 bg-white/35 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl"
-              >
-                <div className="mb-5 inline-flex w-fit rounded-full bg-[#A97868]/10 px-4 py-2 text-sm font-semibold text-[#A97868]">
-                  2024 — En cours
-                </div>
-
-                <h3 className="text-2xl font-bold text-[#3a2a25]">
-                  Swap-It
-                </h3>
-
-                <p className="mt-2 text-sm font-semibold text-[#A97868]">
-                  Plateforme d’échange de cadeaux
-                </p>
-
-                <p className="mt-4 leading-7 text-[#6f5a52]">
-                  Application web collaborative permettant d’organiser des
-                  échanges de cadeaux entre participants, avec profils, groupes,
-                  pige et messagerie intégrée.
-                </p>
-
-                <ul className="mt-5 space-y-3 text-sm leading-6 text-[#6f5a52]">
-                  <li>• Conception des fonctionnalités principales.</li>
-                  <li>• Contribution au module de chat.</li>
-                  <li>• Structure de données Firebase / Firestore.</li>
-                  <li>• Réflexion sur les accès et la confidentialité.</li>
-                </ul>
-
-                <a
-                  href="https://swap-it.ca"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#A97868] transition group-hover:gap-3"
-                >
-                  Voir le site
-                  <ExternalLink size={16} />
-                </a>
-              </motion.article>
-
-              <motion.article
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="group flex flex-col rounded-[2rem] border border-white/60 bg-white/35 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl"
-              >
-                <div className="mb-5 overflow-hidden rounded-2xl border border-white/60 bg-white/40 shadow-lg shadow-[#6f5a52]/10">
-                  <video
-                    src={starboostVideo}
-                    className="aspect-video w-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                </div>
-
-                <div className="mb-5 inline-flex w-fit rounded-full bg-[#A97868]/10 px-4 py-2 text-sm font-semibold text-[#A97868]">
-                  Concept / MVP
-                </div>
-
-                <h3 className="text-2xl font-bold text-[#3a2a25]">
-                  StarBoost
-                </h3>
-
-                <p className="mt-2 text-sm font-semibold text-[#A97868]">
-                  SaaS de gestion automatisée des avis
-                </p>
-
-                <p className="mt-4 leading-7 text-[#6f5a52]">
-                  Concept de système automatisé pour commerces de services
-                  locaux, visant à améliorer le référencement local par la
-                  collecte intelligente d’avis clients.
-                </p>
-
-                <ul className="mt-5 space-y-3 text-sm leading-6 text-[#6f5a52]">
-                  <li>• Workflow SMS après rendez-vous ou paiement.</li>
-                  <li>
-                    • Redirection des avis positifs vers Google / Facebook.
-                  </li>
-                  <li>• Gestion privée des clients insatisfaits.</li>
-                  <li>
-                    • Recherche d’intégrations Square, Stripe, Go Rendez-vous et
-                    Twilio.
-                  </li>
-                </ul>
-
-                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#A97868]">
-                  Produit en conception
-                </span>
-              </motion.article>
-
-              <motion.article
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="group flex flex-col rounded-[2rem] border border-white/60 bg-white/35 p-6 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl"
-              >
-                <div className="mb-5 overflow-hidden rounded-2xl border border-white/60 bg-white/40 shadow-lg shadow-[#6f5a52]/10">
-                  <video
-                    src={laruelleVideo}
-                    className="aspect-video w-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                </div>
-
-                <div className="mb-5 inline-flex w-fit rounded-full bg-[#A97868]/10 px-4 py-2 text-sm font-semibold text-[#A97868]">
-                  Architecture produit
-                </div>
-
-                <h3 className="text-2xl font-bold text-[#3a2a25]">
-                  La Ruelle
-                </h3>
-
-                <p className="mt-2 text-sm font-semibold text-[#A97868]">
-                  Plateforme de troc local
-                </p>
-
-                <p className="mt-4 leading-7 text-[#6f5a52]">
-                  Concept de plateforme locale basée sur l’échange d’objets, de
-                  services et de compétences entre membres d’une communauté.
-                </p>
-
-                <ul className="mt-5 space-y-3 text-sm leading-6 text-[#6f5a52]">
-                  <li>
-                    • Définition des offres, recherches, profils et catégories.
-                  </li>
-                  <li>• Système de tags pour le matchmaking.</li>
-                  <li>• Notifications lors des correspondances.</li>
-                  <li>• Réflexion sur un système de tokens d’échange.</li>
-                </ul>
-
-                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#A97868]">
-                  Concept en structuration
-                </span>
-              </motion.article>
-            </div>
+          <div className="rounded-2xl bg-white/35 p-4">
+            <p className="font-semibold text-[#3a2a25]">
+              Vision marché
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#6f5a52]">
+              Recherche de technologies adaptées, validation des besoins et
+              identification d’utilisateurs ou clients potentiels.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <motion.article
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="group flex flex-col overflow-hidden rounded-[2rem] border border-white/60 bg-white/35 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl"
+        >
+          <a
+            href="https://swap-it.ca"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Voir le site Swap-It"
+            className="relative block overflow-hidden rounded-t-[2rem] bg-white/40"
+          >
+            <img
+              src={swapItImage}
+              alt="Aperçu du projet Swap-It"
+              className="h-[260px] w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:h-[310px]"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#3a2a25]/35 via-transparent to-transparent opacity-80" />
+
+            <div className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-semibold text-[#3a2a25] shadow-lg backdrop-blur-md transition group-hover:bg-white">
+              Voir le site
+              <ExternalLink size={15} />
+            </div>
+          </a>
+
+          <div className="flex flex-1 flex-col p-6">
+            <div className="mb-5 inline-flex w-fit rounded-full bg-[#A97868]/10 px-4 py-2 text-sm font-semibold text-[#A97868]">
+              2024 — En cours
+            </div>
+
+            <h3 className="text-2xl font-bold text-[#3a2a25]">
+              Swap-It
+            </h3>
+
+            <p className="mt-2 text-sm font-semibold text-[#A97868]">
+              Plateforme d’échange de cadeaux
+            </p>
+
+            <p className="mt-4 leading-7 text-[#6f5a52]">
+              Application web collaborative permettant d’organiser des
+              échanges de cadeaux entre participants, avec profils, groupes,
+              pige et messagerie intégrée.
+            </p>
+
+            <ul className="mt-5 space-y-3 text-sm leading-6 text-[#6f5a52]">
+              <li>• Conception des fonctionnalités principales.</li>
+              <li>• Contribution au module de chat.</li>
+              <li>• Structure de données Firebase / Firestore.</li>
+              <li>• Réflexion sur les accès et la confidentialité.</li>
+            </ul>
+          </div>
+        </motion.article>
+
+        <motion.article
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="group flex flex-col overflow-hidden rounded-[2rem] border border-white/60 bg-white/35 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl"
+        >
+          <div className="relative overflow-hidden rounded-t-[2rem] bg-white/40">
+            <video
+              src={starboostVideo}
+              className="h-[260px] w-full object-cover sm:h-[310px]"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+            />
+
+            <div className="pointer-events-none absolute left-5 top-5 rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-[#3a2a25] shadow-lg backdrop-blur-md">
+              Démo vidéo
+            </div>
+          </div>
+
+          <div className="flex flex-1 flex-col p-6">
+            <div className="mb-5 inline-flex w-fit rounded-full bg-[#A97868]/10 px-4 py-2 text-sm font-semibold text-[#A97868]">
+              Concept / MVP
+            </div>
+
+            <h3 className="text-2xl font-bold text-[#3a2a25]">
+              StarBoost
+            </h3>
+
+            <p className="mt-2 text-sm font-semibold text-[#A97868]">
+              SaaS de gestion automatisée des avis
+            </p>
+
+            <p className="mt-4 leading-7 text-[#6f5a52]">
+              Concept de système automatisé pour commerces de services
+              locaux, visant à améliorer le référencement local par la
+              collecte intelligente d’avis clients.
+            </p>
+
+            <ul className="mt-5 space-y-3 text-sm leading-6 text-[#6f5a52]">
+              <li>• Workflow SMS après rendez-vous ou paiement.</li>
+              <li>• Redirection des avis positifs vers Google / Facebook.</li>
+              <li>• Gestion privée des clients insatisfaits.</li>
+              <li>
+                • Recherche d’intégrations Square, Stripe, Go Rendez-vous et
+                Twilio.
+              </li>
+            </ul>
+
+            <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#A97868]">
+              Produit en conception
+            </span>
+          </div>
+        </motion.article>
+
+        <motion.article
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="group flex flex-col overflow-hidden rounded-[2rem] border border-white/60 bg-white/35 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl"
+        >
+          <div className="relative overflow-hidden rounded-t-[2rem] bg-white/40">
+            <video
+              src={laruelleVideo}
+              className="h-[260px] w-full object-cover sm:h-[310px]"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+            />
+
+            <div className="pointer-events-none absolute left-5 top-5 rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-[#3a2a25] shadow-lg backdrop-blur-md">
+              Démo vidéo
+            </div>
+          </div>
+
+          <div className="flex flex-1 flex-col p-6">
+            <div className="mb-5 inline-flex w-fit rounded-full bg-[#A97868]/10 px-4 py-2 text-sm font-semibold text-[#A97868]">
+              Architecture produit
+            </div>
+
+            <h3 className="text-2xl font-bold text-[#3a2a25]">
+              La Ruelle
+            </h3>
+
+            <p className="mt-2 text-sm font-semibold text-[#A97868]">
+              Plateforme de troc local
+            </p>
+
+            <p className="mt-4 leading-7 text-[#6f5a52]">
+              Concept de plateforme locale basée sur l’échange d’objets, de
+              services et de compétences entre membres d’une communauté.
+            </p>
+
+            <ul className="mt-5 space-y-3 text-sm leading-6 text-[#6f5a52]">
+              <li>
+                • Définition des offres, recherches, profils et catégories.
+              </li>
+              <li>• Système de tags pour le matchmaking.</li>
+              <li>• Notifications lors des correspondances.</li>
+              <li>• Réflexion sur un système de tokens d’échange.</li>
+            </ul>
+
+            <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#A97868]">
+              Concept en structuration
+            </span>
+          </div>
+        </motion.article>
+
+        <motion.article
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="group flex flex-col overflow-hidden rounded-[2rem] border border-white/60 bg-white/35 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl"
+        >
+          <a
+            href="https://royallepagetendance.ca"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Voir le site Royal LePage Tendance"
+            className="relative block overflow-hidden rounded-t-[2rem] bg-white/40"
+          >
+            <img
+              src={rltImage}
+              alt="Aperçu du projet Royal LePage Tendance"
+              className="h-[260px] w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:h-[310px]"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#3a2a25]/35 via-transparent to-transparent opacity-80" />
+
+            <div className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-semibold text-[#3a2a25] shadow-lg backdrop-blur-md transition group-hover:bg-white">
+              Voir le site
+              <ExternalLink size={15} />
+            </div>
+          </a>
+
+          <div className="flex flex-1 flex-col p-6">
+            <div className="mb-5 inline-flex w-fit rounded-full bg-[#A97868]/10 px-4 py-2 text-sm font-semibold text-[#A97868]">
+              Mars 2025 — Juillet 2025
+            </div>
+
+            <h3 className="text-2xl font-bold text-[#3a2a25]">
+              Royal LePage Tendance
+            </h3>
+
+            <p className="mt-2 text-sm font-semibold text-[#A97868]">
+              Projet web en équipe
+            </p>
+
+            <p className="mt-4 leading-7 text-[#6f5a52]">
+              Développement en équipe du site web de Royal LePage Tendance,
+              incluant une infrastructure cloud Azure, des API backend, une
+              base de données relationnelle et un outil de clavardage intégré.
+            </p>
+
+            <ul className="mt-5 space-y-3 text-sm leading-6 text-[#6f5a52]">
+              <li>• Coordination Agile et suivi des livrables.</li>
+              <li>• Backlog, sprints et documentation fonctionnelle.</li>
+              <li>• Collaboration avec les équipes web et mobile.</li>
+              <li>• Traduction des besoins d’affaires en récits utilisateurs.</li>
+            </ul>
+          </div>
+        </motion.article>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* =========================
           COMPÉTENCES
@@ -736,15 +822,16 @@ function App() {
 
                 <div className="relative z-10 flex h-full flex-col justify-between rounded-[2rem] border border-white/60 bg-white/35 p-6 backdrop-blur-xl">
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#A97868]">
-                      Disponible
-                    </p>
+  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#A97868]">
+    Disponible
+  </p>
 
-                    <h3 className="mt-4 text-2xl font-bold leading-tight text-[#3a2a25]">
-                      Pour contribuer à des projets clairs, humains et bien
-                      orchestrés.
-                    </h3>
-                  </div>
+  <h3 className="mt-4 text-2xl font-bold leading-tight text-[#3a2a25]">
+    Pour contribuer à des projets clairs, humains et bien orchestrés.
+  </h3>
+
+  <SignatureAccent />
+</div>
 
                   <div className="mt-10 space-y-4 text-[#6f5a52]">
                     <p className="flex items-center gap-3 break-all sm:break-normal">
