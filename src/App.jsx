@@ -26,7 +26,7 @@ const experiences = [
     logoClassName: "max-h-8 max-w-[150px]",
     gridClassName: "md:grid-cols-2",
     points: [
-      "Gestion proactive d’un portefeuille d’environ 30 clients.",
+      "Gestion proactive d’un portefeuille d’environ 25 clients.",
       "Coordination entre clients, développement et direction.",
       "Suivi des livrables SEO/GEO, contenus, fiches Google et optimisations web.",
       "Amélioration des processus internes et du suivi des tâches.",
