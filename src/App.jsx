@@ -13,7 +13,6 @@ import desjardinsLogo from "./assets/logos/desjardins.png";
 import royalLogo from "./assets/logos/royal-lepage.png";
 
 import swapItImage from "./assets/projects/swap-it.png";
-import rltImage from "./assets/projects/rlt.png";
 
 import SignatureAccent from "./components/SignatureAccent";
 
@@ -21,7 +20,7 @@ const experiences = [
   {
     company: "Sitegrow",
     role: "Chargée de projet numérique — SEO / GEO",
-    period: "2026 — Présent",
+    period: "Mars 2026 — Juillet 2026",
     logo: sitegrowLogo,
     logoClassName: "max-h-8 max-w-[150px]",
     gridClassName: "md:grid-cols-2",
@@ -584,26 +583,22 @@ function App() {
           transition={{ duration: 0.25, ease: "easeOut" }}
           className="group flex flex-col overflow-hidden rounded-[2rem] border border-white/60 bg-white/35 shadow-xl shadow-[#6f5a52]/10 backdrop-blur-xl"
         >
-          <a
-            href="https://royallepagetendance.ca"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Voir le site Royal LePage Tendance"
-            className="relative block overflow-hidden rounded-t-[2rem] bg-white/40"
-          >
-            <img
-              src={rltImage}
-              alt="Aperçu du projet Royal LePage Tendance"
-              className="h-[260px] w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:h-[310px]"
+          <div className="relative overflow-hidden rounded-t-[2rem] bg-black">
+            <iframe
+              className="h-[260px] w-full sm:h-[310px]"
+              src="https://www.youtube.com/embed/vTWqmjkrVv8"
+              title="Démonstration vidéo du site Royal LePage Tendance"
+              frameBorder="0"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-[#3a2a25]/35 via-transparent to-transparent opacity-80" />
-
-            <div className="absolute bottom-5 right-5 inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-sm font-semibold text-[#3a2a25] shadow-lg backdrop-blur-md transition group-hover:bg-white">
-              Voir le site
-              <ExternalLink size={15} />
+            <div className="pointer-events-none absolute left-5 top-5 rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-[#3a2a25] shadow-lg backdrop-blur-md">
+              Démo vidéo
             </div>
-          </a>
+          </div>
 
           <div className="flex flex-1 flex-col p-6">
             <div className="mb-5 inline-flex w-fit rounded-full bg-[#A97868]/10 px-4 py-2 text-sm font-semibold text-[#A97868]">
